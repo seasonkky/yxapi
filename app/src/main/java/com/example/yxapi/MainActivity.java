@@ -26,6 +26,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button bt_reboot;
     private ToggleButton tb1;
     private ToggleButton tb2;
+
+    private ToggleButton io1;
+    private ToggleButton io2;
+    private ToggleButton io3;
+    private ToggleButton io4;
+    private ToggleButton install;
     private Spinner spi;
 
 
@@ -63,11 +69,24 @@ public class MainActivity extends Activity implements View.OnClickListener{
         tb1 = findViewById(R.id.toggleButton);
         tb2 = findViewById(R.id.toggleButton2);
 
+        io1 = findViewById(R.id.toggleButton3);
+        io2 = findViewById(R.id.toggleButton4);
+        io3 = findViewById(R.id.toggleButton5);
+        io4 = findViewById(R.id.toggleButton6);
+
+        install = findViewById(R.id.toggleButton7);
+
        findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.toggleButton).setOnClickListener(this);
         findViewById(R.id.toggleButton2).setOnClickListener(this);
 
+        io1.setOnClickListener(this);
+        io2.setOnClickListener(this);
+        io3.setOnClickListener(this);
+        io4.setOnClickListener(this);
+
+        install.setOnClickListener(this);
     }
 
     private void InitSpinner() {
@@ -137,6 +156,53 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 {
                     Log.d("yx","toggle2 button click");
                     yx.setStaBar(true);
+                }
+                break;
+            case R.id.toggleButton3: //IO1
+                if(io1.isChecked()) {
+                    yx.setGpioDirection(113,0);
+                    yx.setGpioValue(113,1);
+                } else {
+                    yx.setGpioDirection(113,0);
+                    yx.setGpioValue(113,0);
+                }
+                info.setText("IO1 dir:"+yx.getGpioDirection(113)+",value:"+yx.getGpioValue(113));
+                break;
+            case R.id.toggleButton4:
+                if(io2.isChecked()) {
+                    yx.setGpioDirection(112,0);
+                    yx.setGpioValue(112,1);
+                } else {
+                    yx.setGpioDirection(112,0);
+                    yx.setGpioValue(112,0);
+                }
+                info.setText("IO2 dir:"+yx.getGpioDirection(112)+",value:"+yx.getGpioValue(112));
+                break;
+            case R.id.toggleButton5:
+                if(io3.isChecked()) {
+                    yx.setGpioDirection(111,0);
+                    yx.setGpioValue(111,1);
+                } else {
+                    yx.setGpioDirection(111,0);
+                    yx.setGpioValue(111,0);
+                }
+                info.setText("IO3 dir:"+yx.getGpioDirection(111)+",value:"+yx.getGpioValue(111));
+                break;
+            case R.id.toggleButton6:
+                if(io4.isChecked()) {
+                    yx.setGpioDirection(110,0);
+                    yx.setGpioValue(110,0);
+                } else {
+                    yx.setGpioDirection(110,0);
+                    yx.setGpioValue(110,0);
+                }
+                info.setText("IO4 dir:"+yx.getGpioDirection(110)+",value:"+yx.getGpioValue(110));
+                break;
+            case R.id.toggleButton7:
+                if(install.isChecked()) {
+                    yx.silentInstallApk("/sdcard/test.apk");
+                } else {
+                    yx.unInstallApk("com.bjw.ComAssistant");
                 }
                 break;
                 default:

@@ -40,23 +40,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/spingarr" />
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
 
             <ToggleButton
                 android:id="@+id/toggleButton"
@@ -73,6 +56,45 @@
                 android:text="ToggleButton"
                 android:textOff="隐藏状态栏"
                 android:textOn="显示状态栏" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="IO1 高"
+                android:textOn="IO1 低" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="IO2高"
+                android:textOn="IO2低" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="IO3高"
+                android:textOn="IO3低" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="IO4高"
+                android:textOn="IO4低" />
+            <ToggleButton
+                android:id="@+id/toggleButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="安装/sdcard/test.apk"
+                android:textOn="卸载apk" />
 
             <TextView
                 android:id="@+id/textView"
