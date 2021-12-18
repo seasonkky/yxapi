@@ -42,3 +42,38 @@ public int setDeviceSerialno(String value)
 */  
 public int setDeviceMacaddress(String value)
 
+## GPIO设置
+### M583
+/**
+  * @method  setGpioDirection(int gpio, int arg)
+  * @description 设置GPIO方向
+  * @param value，gpio number。1为输入，0为输出
+  * @return false 失败 true 成功
+*/  
+public boolean setGpioDirection(int gpio, int arg)
+
+/**
+  * @method  getGpioDirection(int gpio)
+  * @description 获取GPIO方向
+  * @param value，gpio number
+  * @return gpio方向 in / out
+*/  
+public String getGpioDirection(int gpio)
+
+/**
+  * @method  setGpioValue(int id,int value)
+  * @description 设置gpio高低，只有在输出模式有效
+  * @param value，gpio number，0低1高
+  * @return -1失败
+*/  
+public int setGpioValue(int id,int value)
+
+/**
+  * @method  getGpioValue(int id)
+  * @description 获取GPIO高低
+  * @param value，gpio number
+  * @return -1失败 0低 1高
+*/  
+public int getGpioValue(int id)
+
+
