@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yxapi">
 
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+       <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+        <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
     <application
         android:allowBackup="true"
