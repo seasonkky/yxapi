@@ -125,3 +125,11 @@ public int shutDownNow()
   * @return -1失败
 */  
 public int rebootNow()
+
+/**
+  * @method  getSerialno()
+  * @description 获取设备SN号
+  * @param value，void
+  * @return 设备SN号 adb devices / adb get-serialno
+*/  
+public String getSerialno()
