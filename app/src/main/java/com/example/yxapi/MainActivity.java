@@ -83,10 +83,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 switch (msg.what)
                 {
                     case R_PASS:
-                        info.setText("IO1 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n" +
-                                "IO2 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                                "IO3 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                                "IO4 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n");
+                        info.setText("IO1 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n" +
+                                "IO2 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
+                                "IO3 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
+                                "IO4 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
                         break;
                 }
                 super.handleMessage(msg);
@@ -193,43 +193,43 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.toggleButton3: //IO1
                 if(io1.isChecked()) {
-                    yx.setGpioDirection(113,0);
-                    yx.setGpioValue(113,1);
+                    yx.setGpioDirection(110,0);
+                    yx.setGpioValue(110,1);
                 } else {
-                    yx.setGpioDirection(113,0);
-                    yx.setGpioValue(113,0);
+                    yx.setGpioDirection(110,0);
+                    yx.setGpioValue(110,0);
                 }
-                info.setText("IO1 direction:"+yx.getGpioDirection(113)+",value:"+yx.getGpioValue(113));
+                info.setText("IO1 direction:"+yx.getGpioDirection(110)+",value:"+yx.getGpioValue(110));
                 break;
             case R.id.toggleButton4:
                 if(io2.isChecked()) {
-                    yx.setGpioDirection(112,0);
-                    yx.setGpioValue(112,1);
-                } else {
-                    yx.setGpioDirection(112,0);
-                    yx.setGpioValue(112,0);
-                }
-                info.setText("IO2 direction:"+yx.getGpioDirection(112)+",value:"+yx.getGpioValue(112));
-                break;
-            case R.id.toggleButton5:
-                if(io3.isChecked()) {
                     yx.setGpioDirection(111,0);
                     yx.setGpioValue(111,1);
                 } else {
                     yx.setGpioDirection(111,0);
                     yx.setGpioValue(111,0);
                 }
-                info.setText("IO3 direction:"+yx.getGpioDirection(111)+",value:"+yx.getGpioValue(111));
+                info.setText("IO2 direction:"+yx.getGpioDirection(111)+",value:"+yx.getGpioValue(111));
+                break;
+            case R.id.toggleButton5:
+                if(io3.isChecked()) {
+                    yx.setGpioDirection(112,0);
+                    yx.setGpioValue(112,1);
+                } else {
+                    yx.setGpioDirection(112,0);
+                    yx.setGpioValue(112,0);
+                }
+                info.setText("IO3 direction:"+yx.getGpioDirection(112)+",value:"+yx.getGpioValue(112));
                 break;
             case R.id.toggleButton6:
                 if(io4.isChecked()) {
-                    yx.setGpioDirection(110,0);
-                    yx.setGpioValue(110,0);
+                    yx.setGpioDirection(113,0);
+                    yx.setGpioValue(113,0);
                 } else {
-                    yx.setGpioDirection(110,0);
-                    yx.setGpioValue(110,0);
+                    yx.setGpioDirection(113,0);
+                    yx.setGpioValue(113,0);
                 }
-                info.setText("IO4 direction:"+yx.getGpioDirection(110)+",value:"+yx.getGpioValue(110));
+                info.setText("IO4 direction:"+yx.getGpioDirection(113)+",value:"+yx.getGpioValue(113));
                 break;
             case R.id.toggleButton7:
                 if(install.isChecked()) {
@@ -241,25 +241,25 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.toggleButton8:
                 if(io_inputoutput.isChecked()) {
 
-                    yx.setGpioDirection(113,1);
-                    yx.setGpioDirection(112,1);
-                    yx.setGpioDirection(111,1);
                     yx.setGpioDirection(110,1);
+                    yx.setGpioDirection(111,1);
+                    yx.setGpioDirection(112,1);
+                    yx.setGpioDirection(113,1);
 
-                    info.setText("IO1 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n" +
-                            "IO2 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                            "IO3 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                            "IO4 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n");
+                    info.setText("IO1 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n" +
+                            "IO2 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
+                            "IO3 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
+                            "IO4 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
                 } else {
-                    yx.setGpioDirection(113,0);
-                    yx.setGpioDirection(112,0);
-                    yx.setGpioDirection(111,0);
                     yx.setGpioDirection(110,0);
+                    yx.setGpioDirection(111,0);
+                    yx.setGpioDirection(112,0);
+                    yx.setGpioDirection(113,0);
 
-                    info.setText("IO1 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n" +
-                            "IO2 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                            "IO3 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                            "IO4 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n");
+                    info.setText("IO1 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n" +
+                            "IO2 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
+                            "IO3 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
+                            "IO4 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
                 }
                 default:
                     break;
