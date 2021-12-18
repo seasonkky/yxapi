@@ -6,7 +6,7 @@ YxDeviceManager manager = YxDeviceManager.getInstance(this);
 manager.getApiVersion()
 
 
-## 20211218 update
+## apk安装与卸载
 
 /**
   * @method silentInstallApk(String apkPath) 
@@ -25,6 +25,7 @@ public void silentInstallApk(String apkPath)
 */  
 public void silentInstallApk(String apkPath)
 
+## vendor storage 设备spi nor存储区域
 
 /**
   * @method  setDeviceSerialno(String value)
@@ -43,7 +44,6 @@ public int setDeviceSerialno(String value)
 public int setDeviceMacaddress(String value)
 
 ## GPIO设置
-### M583
 /**
   * @method  setGpioDirection(int gpio, int arg)
   * @description 设置GPIO方向
