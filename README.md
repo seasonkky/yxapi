@@ -76,4 +76,52 @@ public int setGpioValue(int id,int value)
 */  
 public int getGpioValue(int id)
 
+## 状态栏，导航栏
+/**
+  * @method  setNavBar(boolean flag)
+  * @description 设置导航栏显示隐藏
+  * @param value，true 显示 false 隐藏
+  * @return void
+*/  
+public void setNavBar(boolean flag) 
 
+/**
+  * @method  setStaBar(boolean flag)
+  * @description 设置状态栏显示隐藏
+  * @param value，true 显示 false 隐藏
+  * @return void
+*/  
+public void setStaBar(boolean flag) 
+
+## 系统
+/**
+  * @method  setScreenRotation(int value)
+  * @description 设置系统显示方向，重启后生效
+  * @param value，0 90 180 270
+  * @return -1 失败
+*/  
+public int setScreenRotation(int value)
+
+/**
+  * @method  getScreenRotation()
+  * @description 获取当前系统显示方向
+  * @param value，void
+  * @return 0 90 180 270
+*/  
+public int getScreenRotation()
+
+/**
+  * @method  shutDownNow()
+  * @description 关机
+  * @param value，void
+  * @return -1失败
+*/  
+public int shutDownNow()
+
+/**
+  * @method  rebootNow()
+  * @description 重启
+  * @param value，void
+  * @return -1失败
+*/  
+public int rebootNow()
