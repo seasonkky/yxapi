@@ -35,9 +35,9 @@ MyManager manager = MyManager.getInstance(this);
 首先要声明 MyManager 对象， 然后就可以开始使用 API.如下面例子：   
 //声明 MyManager 对象  
 YxDeviceManager manager = YxDeviceManager.getInstance(this);  
-//使用 API  
-manager.getApiVersion()
-![输入图片说明](binary/%E5%9B%BE%E7%89%873.png)
+//使用 API   
+manager.getApiVersion()  
+![输入图片说明](binary/%E5%9B%BE%E7%89%873.png)  
 
 ## 串口
 ![输入图片说明](binary/uart.jpg)
