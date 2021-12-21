@@ -172,4 +172,4 @@ public int rebootNow()
 public String getSerialno()
 
 ## 双屏异显
-[输入链接说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
+[参考此demo源码与说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
