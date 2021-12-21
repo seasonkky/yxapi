@@ -1,9 +1,43 @@
-开始使用 API  
-首先要声明 MyManager 对象， 然后就可以开始使用 API.如下面例子：  
+
+# 深圳市昱显科技有限公司  API开发文档
+
+
+> 发布版本：V0.0.3
+> 
+> 日期：2021-12-21
+> 
+> 文件密级：□绝密 □秘密 □内部资料 ■公开
+> 
+> 免责声明
+> 
+> 本文档按“现状”提供，本人不对本文档的任何陈述、信息和内容的准确性、可靠性、完整性、适销性、特定目的性和非侵权性提供任何明示或暗示的声明或保证。本文档仅作为使用指导的参考。本文档将可能在未经任何通知的情况下，不定期进行更新或修改。
+> 
+> 商标声明
+> 
+> 本文档可能提及的其他所有注册商标或商标，由其各自拥有者所有。  
+
+**前言**
+
+**概述**
+
+文档主要介绍YX API如何快速移植使用， 让开发者能够进一步开发和适配YX硬件平台。
+
+
+
+## 如何在Android Studio中使用 API
+(1)将yx.jar复制到【工程目录\app\libs\】下；  
+![输入图片说明](binary/%E5%9B%BE%E7%89%871.png)  
+(2)右键点击libs文件夹中的jar文件选择 add as Library...然后选择Model，这样也可以导入成功  
+![输入图片说明](binary/%E5%9B%BE%E7%89%872.png)  
+(3)开始使用 API  
+注意：所有的api调用前必须声明  
+MyManager manager = MyManager.getInstance(this);    
+首先要声明 MyManager 对象， 然后就可以开始使用 API.如下面例子：   
 //声明 MyManager 对象  
 YxDeviceManager manager = YxDeviceManager.getInstance(this);  
 //使用 API  
 manager.getApiVersion()
+![输入图片说明](binary/%E5%9B%BE%E7%89%873.png)
 
 ## 串口
 ![输入图片说明](binary/uart.jpg)
