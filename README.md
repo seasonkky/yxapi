@@ -170,3 +170,6 @@ public int rebootNow()
   * @return 设备SN号 adb devices / adb get-serialno
 */  
 public String getSerialno()
+
+## 双屏异显
+[输入链接说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
