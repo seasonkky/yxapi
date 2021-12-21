@@ -5,6 +5,9 @@ YxDeviceManager manager = YxDeviceManager.getInstance(this);
 //使用 API  
 manager.getApiVersion()
 
+## 串口
+![输入图片说明](binary/uart.jpg)
+
 
 ## apk安装与卸载
 
