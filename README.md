@@ -81,6 +81,10 @@ public int setDeviceSerialno(String value)
 public int setDeviceMacaddress(String value)
 
 ## GPIO设置
+ gpio-102 (                    |IO4                 ) out hi
+ gpio-111 (                    |IO3                 ) out hi
+ gpio-112 (                    |IO2                 ) out hi
+ gpio-113 (                    |IO1                 ) out hi
 /**
   * @method  setGpioDirection(int gpio, int arg)
   * @description 设置GPIO方向

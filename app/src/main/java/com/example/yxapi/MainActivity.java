@@ -23,19 +23,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
     YxDeviceManager yx;
 
     private TextView info;
-    private TextView info1;
 
-    private Button bt_reboot;
     private ToggleButton tb1;
-    private ToggleButton tb2;
 
-    private ToggleButton io1;
-    private ToggleButton io2;
-    private ToggleButton io3;
-    private ToggleButton io4;
-    private ToggleButton install;
-    private ToggleButton io_inputoutput;
-    private Spinner spi;
 
     public Handler mHandler;
     private Thread mClockThread;
@@ -49,32 +39,18 @@ public class MainActivity extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         yx = YxDeviceManager.getInstance(this);
+        info = findViewById(R.id.textView);
 
-        InitDeviceInfo();
         InitButton();
-        InitSpinner();
         InitHandle();
     }
 
-    private void InitDeviceInfo() {
-        info=(TextView)findViewById(R.id.textView);
-        info.setText("API version:"+yx.getApiVersion() + "\n"+
-                     "Android version:"+yx.getAndroidVersion() + "\n"+
-                     "kernel version:"+yx.getKernelVersion() + "\n" +
-                      "getAndroidModle:"+yx.getAndroidModle() + "\n" +
-                     "固件版本:"+yx.getFirmwareDate()+ "\n"+
-                      "设备SN号:"+yx.getSerialno()+"\n"+
-                      "root status:"+yx.getRootStatus() + "\n" +
-                       "存储:"+yx.getInternalStorageMemory() +"\n" +
-                        "内存:" + yx.getRunningMemory()+"\n" +
-                        "屏幕方向:"+yx.getScreenRotation() + "\n" +
-                         "IO1:"+yx.getGpioValue(1) + "\n" +
-                         "IO2:"+yx.getGpioValue(2) + "\n" +
-                        "IO3:"+yx.getGpioValue(3) + "\n" +
-                        "IO4:" + yx.getGpioValue(4)+ "\n"
-                        );
+    private void initGpio() {
+        yx.setGpioDirection(113,1); //IO4 IN
+        yx.setGpioDirection(112,1); //IO3 IN
+        yx.setGpioDirection(111,0); //IO2 OUT
+        yx.setGpioDirection(102,1); //IO1 IN
     }
-
     private void InitHandle() {
         mHandler = new Handler()
         {
@@ -83,10 +59,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 switch (msg.what)
                 {
                     case R_PASS:
-                        info.setText("IO1 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n" +
-                                "IO2 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                                "IO3 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                                "IO4 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
+                        info.setText("LOCK_DECT io direction:"+yx.getGpioDirection(102) + ",value:"+yx.getGpioValue(102) + "\n" +
+                                "OPEN IO direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
+                                "NO IO direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
+                                "NC IO direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
                         break;
                 }
                 super.handleMessage(msg);
@@ -98,169 +74,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private void InitButton() {
         tb1 = findViewById(R.id.toggleButton);
-        tb2 = findViewById(R.id.toggleButton2);
 
-        io1 = findViewById(R.id.toggleButton3);
-        io2 = findViewById(R.id.toggleButton4);
-        io3 = findViewById(R.id.toggleButton5);
-        io4 = findViewById(R.id.toggleButton6);
-        io_inputoutput = findViewById(R.id.toggleButton8);
-
-        install = findViewById(R.id.toggleButton7);
-
-       findViewById(R.id.button).setOnClickListener(this);
-        findViewById(R.id.button2).setOnClickListener(this);
-        findViewById(R.id.toggleButton).setOnClickListener(this);
-        findViewById(R.id.toggleButton2).setOnClickListener(this);
-
-        io1.setOnClickListener(this);
-        io2.setOnClickListener(this);
-        io3.setOnClickListener(this);
-        io4.setOnClickListener(this);
-        io_inputoutput.setOnClickListener(this);
-
-        install.setOnClickListener(this);
-    }
-
-    private void InitSpinner() {
-        info1 = findViewById(R.id.textView1);
-        info1.setText("设置屏幕方向，当前屏幕方向:"+yx.getScreenRotation());
-        spi = findViewById(R.id.spinner2);
-        spi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int pos, long id) {
-
-                if(pos == 1) {
-                    yx.setScreenRotation(0);
-                    yx.rebootNow();
-                }
-                else if(pos == 2) {
-                    yx.setScreenRotation(90);
-                    yx.rebootNow();
-                }
-                else if(pos == 3) {
-                    yx.setScreenRotation(180);
-                    yx.rebootNow();
-                }
-                else if(pos == 4) {
-                    yx.setScreenRotation(270);
-                    yx.rebootNow();
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Another interface callback
-            }
-        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button:
-                Log.d("yx","reboot button click");
-                yx.rebootNow();
-                break;
-            case  R.id.button2:
-                Log.d("yx","shut down button click");
-                yx.shutDownNow();
-                break;
             case R.id.toggleButton:
                 if(tb1.isChecked())
                 {
-                    Log.d("yx","toggle button click isChecked");
-                    yx.setNavBar(false);
+                    yx.setGpioValue(111,1);
                 }
                     else
                 {
-                    Log.d("yx","toggle button click");
-                    yx.setNavBar(true);
-                }
-                break;
-            case R.id.toggleButton2:
-                Log.d("yx","toggle2222 button click");
-                if(tb2.isChecked())
-                {
-                    Log.d("yx","toggle2 button click isChecked");
-                    yx.setStaBar(false);
-                }
-                else
-                {
-                    Log.d("yx","toggle2 button click");
-                    yx.setStaBar(true);
-                }
-                break;
-            case R.id.toggleButton3: //IO1
-                if(io1.isChecked()) {
-                    yx.setGpioDirection(110,0);
-                    yx.setGpioValue(110,1);
-                } else {
-                    yx.setGpioDirection(110,0);
-                    yx.setGpioValue(110,0);
-                }
-                info.setText("IO1 direction:"+yx.getGpioDirection(110)+",value:"+yx.getGpioValue(110));
-                break;
-            case R.id.toggleButton4:
-                if(io2.isChecked()) {
-                    yx.setGpioDirection(111,0);
-                    yx.setGpioValue(111,1);
-                } else {
-                    yx.setGpioDirection(111,0);
                     yx.setGpioValue(111,0);
                 }
-                info.setText("IO2 direction:"+yx.getGpioDirection(111)+",value:"+yx.getGpioValue(111));
                 break;
-            case R.id.toggleButton5:
-                if(io3.isChecked()) {
-                    yx.setGpioDirection(112,0);
-                    yx.setGpioValue(112,1);
-                } else {
-                    yx.setGpioDirection(112,0);
-                    yx.setGpioValue(112,0);
-                }
-                info.setText("IO3 direction:"+yx.getGpioDirection(112)+",value:"+yx.getGpioValue(112));
-                break;
-            case R.id.toggleButton6:
-                if(io4.isChecked()) {
-                    yx.setGpioDirection(113,0);
-                    yx.setGpioValue(113,0);
-                } else {
-                    yx.setGpioDirection(113,0);
-                    yx.setGpioValue(113,0);
-                }
-                info.setText("IO4 direction:"+yx.getGpioDirection(113)+",value:"+yx.getGpioValue(113));
-                break;
-            case R.id.toggleButton7:
-                if(install.isChecked()) {
-                    yx.silentInstallApk("/sdcard/test.apk");
-                } else {
-                    yx.unInstallApk("com.bjw.ComAssistant");
-                }
-                break;
-            case R.id.toggleButton8:
-                if(io_inputoutput.isChecked()) {
-
-                    yx.setGpioDirection(110,1);
-                    yx.setGpioDirection(111,1);
-                    yx.setGpioDirection(112,1);
-                    yx.setGpioDirection(113,1);
-
-                    info.setText("IO1 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n" +
-                            "IO2 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                            "IO3 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                            "IO4 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
-                } else {
-                    yx.setGpioDirection(110,0);
-                    yx.setGpioDirection(111,0);
-                    yx.setGpioDirection(112,0);
-                    yx.setGpioDirection(113,0);
-
-                    info.setText("IO1 direction:"+yx.getGpioDirection(110) + ",value:"+yx.getGpioValue(110) + "\n" +
-                            "IO2 direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                            "IO3 direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                            "IO4 direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
-                }
                 default:
                     break;
         }
