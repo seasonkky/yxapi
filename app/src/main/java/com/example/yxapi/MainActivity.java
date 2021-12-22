@@ -43,6 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         InitButton();
         InitHandle();
+        initGpio();
     }
 
     private void initGpio() {
@@ -74,6 +75,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private void InitButton() {
         tb1 = findViewById(R.id.toggleButton);
+        tb1.setOnClickListener(this);
 
     }
 
