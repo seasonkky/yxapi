@@ -173,3 +173,13 @@ public String getSerialno()
 
 ## 双屏异显
 [参考此demo源码与说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
+
+## modem config  
+/**
+  * @method  changeMobileCarrier()
+  * @description 设置网络类型
+  * @param value，1 移动 2 联通 3 电信
+  * @return -1 失败
+*/  
+public int changeMobileCarrier(int paramInt)  
+
