@@ -183,3 +183,13 @@ public String getSerialno()
 */  
 public int changeMobileCarrier(int paramInt)  
 
+
+public void turnOffBacklight()  //关闭主屏背光  
+public void turnOnBacklight()   //打开主屏背光  
+public boolean isBacklightOn()  //查询当前主屏背光是否打开  
+public int getSystemBrightness()  //获取当前主屏亮度值  
+public void turnOffBacklightExtend() //关闭副屏背光  
+public void turnOnBacklightExtend()  //打开副屏背光  
+public boolean isBacklightOnExtend()  //查询当前副屏背光是否打开  
+public int getSystemBrightnessExtend()  //获取当前副屏亮度值  
+
