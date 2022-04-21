@@ -183,6 +183,22 @@ public String getSerialno()
 */  
 public int changeMobileCarrier(int paramInt)  
 
+/**
+  * @method  getTelephonyImei()
+  * @description 获取设备IMEI
+  * @param value
+  * @return 设备IMEI
+*/  
+public String getTelephonyImei()  
+
+/**
+  * @method  getSimSerialNumber()
+  * @description 获取SIM卡number
+  * @param value
+  * @return sim卡number
+*/  
+public String getSimSerialNumber()  
+
 
 public void turnOffBacklight()  //关闭主屏背光  
 public void turnOnBacklight()   //打开主屏背光  
