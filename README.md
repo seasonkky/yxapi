@@ -177,3 +177,39 @@ public String getSerialno()
 
 ## 双屏异显
 [参考此demo源码与说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
+
+## modem config  
+/**
+  * @method  changeMobileCarrier()
+  * @description 设置网络类型
+  * @param value，1 移动 2 联通 3 电信
+  * @return -1 失败
+*/  
+public int changeMobileCarrier(int paramInt)  
+
+/**
+  * @method  getTelephonyImei()
+  * @description 获取设备IMEI
+  * @param value
+  * @return 设备IMEI
+*/  
+public String getTelephonyImei()  
+
+/**
+  * @method  getSimSerialNumber()
+  * @description 获取SIM卡number
+  * @param value
+  * @return sim卡number
+*/  
+public String getSimSerialNumber()  
+
+
+public void turnOffBacklight()  //关闭主屏背光  
+public void turnOnBacklight()   //打开主屏背光  
+public boolean isBacklightOn()  //查询当前主屏背光是否打开  
+public int getSystemBrightness()  //获取当前主屏亮度值  
+public void turnOffBacklightExtend() //关闭副屏背光  
+public void turnOnBacklightExtend()  //打开副屏背光  
+public boolean isBacklightOnExtend()  //查询当前副屏背光是否打开  
+public int getSystemBrightnessExtend()  //获取当前副屏亮度值  
+
