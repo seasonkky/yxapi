@@ -60,7 +60,7 @@ public void silentInstallApk(String apkPath)
   * @param value，apk包名
   * @return void
 */  
-public void silentInstallApk(String apkPath)
+public void unInstallApk(String packagename)
 
 ## vendor storage 设备spi nor存储区域
 
@@ -213,3 +213,20 @@ public void turnOnBacklightExtend()  //打开副屏背光
 public boolean isBacklightOnExtend()  //查询当前副屏背光是否打开  
 public int getSystemBrightnessExtend()  //获取当前副屏亮度值  
 
+
+/**
+  * @method  getSensorReport()
+  * @description 获取人体感应sensor当前开关状态
+  * @param value
+  * @return false 关，true 开
+*/  
+public boolean getSensorReport()   
+
+
+/**
+  * @method  setSensorReport(boolean param)
+  * @description 设置人体感应开关
+  * @param false 关， true 开
+  * @return >0 成功
+*/  
+public int setSensorReport(boolean param)  
