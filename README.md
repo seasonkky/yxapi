@@ -230,3 +230,20 @@ public boolean getSensorReport()
   * @return >0 成功
 */  
 public int setSensorReport(boolean param)  
+
+## OTA升级  
+/**
+  * @method  upgradeSystem(String absolutePath)
+  * @description 升级系统
+  * @param ota包存放的绝对路径
+  * @return
+*/  
+public void upgradeSystem(String absolutePath)  
+
+ /**
+  * @method  setUpdateSystemWithDialog(boolean flag)
+  * @description 设置升级是否弹出用户确认框（设置后永久生效）
+  * @param false 不需要用户确认，true 需要用户确认
+  * @return
+*/  
+public void setUpdateSystemWithDialog(boolean flag)
