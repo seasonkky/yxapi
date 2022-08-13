@@ -181,49 +181,6 @@ public String getSerialno()
 ## 双屏异显
 [参考此demo源码与说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
 
-## modem config  
-/**
-  * @method  changeMobileCarrier()
-  * @description 设置网络类型
-  * @param value，1 移动 2 联通 3 电信
-  * @return -1 失败
-*/  
-public int changeMobileCarrier(int paramInt)  
-
-/**
-  * @method  getTelephonyImei()
-  * @description 获取设备IMEI
-  * @param value
-  * @return 设备IMEI
-*/  
-public String getTelephonyImei()  
-
-/**
-  * @method  getSimSerialNumber()
-  * @description 获取SIM卡number
-  * @param value
-  * @return sim卡number
-*/  
-public String getSimSerialNumber()  
-
-
-/**
-  * @method  getSensorReport()
-  * @description 获取人体感应sensor当前开关状态
-  * @param value
-  * @return false 关，true 开
-*/  
-public boolean getSensorReport()   
-
-
-/**
-  * @method  setSensorReport(boolean param)
-  * @description 设置人体感应开关
-  * @param false 关， true 开
-  * @return >0 成功
-*/  
-public int setSensorReport(boolean param)  
-
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
