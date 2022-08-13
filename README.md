@@ -81,10 +81,13 @@ public int setDeviceSerialno(String value)
 public int setDeviceMacaddress(String value)
 
 ## GPIO设置
- gpio-102 (                    |IO4                 ) out hi
- gpio-111 (                    |IO3                 ) out hi
- gpio-112 (                    |IO2                 ) out hi
- gpio-113 (                    |IO1                 ) out hi
+| gpio number  |  func |  mode |  default |
+|---|---|---|---|
+| 100 | IO1  |  in/out | in  |
+| 101 | IO2 |  in/out |  in |
+| 102 | IO3 |  in/out |  in |
+| 103 | IO4 |  in/out |  in |
+
 /**
   * @method  setGpioDirection(int gpio, int arg)
   * @description 设置GPIO方向
@@ -202,16 +205,6 @@ public String getTelephonyImei()
   * @return sim卡number
 */  
 public String getSimSerialNumber()  
-
-
-public void turnOffBacklight()  //关闭主屏背光  
-public void turnOnBacklight()   //打开主屏背光  
-public boolean isBacklightOn()  //查询当前主屏背光是否打开  
-public int getSystemBrightness()  //获取当前主屏亮度值  
-public void turnOffBacklightExtend() //关闭副屏背光  
-public void turnOnBacklightExtend()  //打开副屏背光  
-public boolean isBacklightOnExtend()  //查询当前副屏背光是否打开  
-public int getSystemBrightnessExtend()  //获取当前副屏亮度值  
 
 
 /**
