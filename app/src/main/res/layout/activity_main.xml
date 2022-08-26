@@ -18,8 +18,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ToggleButton"
-                android:textOff="开锁"
-                android:textOn="关锁" />
+                android:textOff="红灯开"
+                android:textOn="红灯关" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="绿灯开"
+                android:textOn="绿灯开" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="白灯开"
+                android:textOn="白灯关" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="继电器开"
+                android:textOn="继电器关" />
+
+
+            <ToggleButton
+                android:id="@+id/toggleButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="IO1高"
+                android:textOn="IO1低" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="IO2高"
+                android:textOn="IO2低" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"

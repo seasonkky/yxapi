@@ -25,10 +25,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private TextView info;
 
     private ToggleButton tb1;
-
+    private ToggleButton tb2;
+    private ToggleButton tb3;
+    private ToggleButton tb4;
+    private ToggleButton tb5;
+    private ToggleButton tb6;
 
     public Handler mHandler;
-    private Thread mClockThread;
 
     private static boolean threadFlag = false;
     private static final int R_PASS = 1;
@@ -42,41 +45,33 @@ public class MainActivity extends Activity implements View.OnClickListener{
         info = findViewById(R.id.textView);
 
         InitButton();
-        InitHandle();
         initGpio();
     }
 
     private void initGpio() {
-        yx.setGpioDirection(113,1); //IO4 IN
-        yx.setGpioDirection(112,1); //IO3 IN
-        yx.setGpioDirection(111,0); //IO2 OUT
-        yx.setGpioDirection(102,1); //IO1 IN
-    }
-    private void InitHandle() {
-        mHandler = new Handler()
-        {
-            public void handleMessage(Message msg)
-            {
-                switch (msg.what)
-                {
-                    case R_PASS:
-                        info.setText("LOCK_DECT io direction:"+yx.getGpioDirection(102) + ",value:"+yx.getGpioValue(102) + "\n" +
-                                "OPEN IO direction:"+yx.getGpioDirection(111) + ",value:"+yx.getGpioValue(111) + "\n" +
-                                "NO IO direction:"+yx.getGpioDirection(112) + ",value:"+yx.getGpioValue(112) + "\n" +
-                                "NC IO direction:"+yx.getGpioDirection(113) + ",value:"+yx.getGpioValue(113) + "\n");
-                        break;
-                }
-                super.handleMessage(msg);
-            }
-        };
-        mClockThread = new LooperThread();
-        mClockThread.start();
+        yx.setGpioDirection(88,0); //relay out
+        yx.setGpioDirection(114,0); //IO1 out
+        yx.setGpioDirection(115,0); //IO1 out
     }
 
     private void InitButton() {
         tb1 = findViewById(R.id.toggleButton);
         tb1.setOnClickListener(this);
 
+        tb2 = findViewById(R.id.toggleButton2);
+        tb2.setOnClickListener(this);
+
+        tb3 = findViewById(R.id.toggleButton3);
+        tb3.setOnClickListener(this);
+
+        tb4 = findViewById(R.id.toggleButton4);
+        tb4.setOnClickListener(this);
+
+        tb5 = findViewById(R.id.toggleButton5);
+        tb5.setOnClickListener(this);
+
+        tb6 = findViewById(R.id.toggleButton6);
+        tb6.setOnClickListener(this);
     }
 
     @Override
@@ -85,36 +80,65 @@ public class MainActivity extends Activity implements View.OnClickListener{
             case R.id.toggleButton:
                 if(tb1.isChecked())
                 {
-                    yx.setGpioValue(111,1);
+                    yx.setOemFunc("lightron");
                 }
                     else
                 {
-                    yx.setGpioValue(111,0);
+                    yx.setOemFunc("lightroff");
+                }
+                break;
+            case R.id.toggleButton2:
+                if(tb2.isChecked())
+                {
+                    yx.setOemFunc("lightgon");
+                }
+                else
+                {
+                    yx.setOemFunc("lightgoff");
+                }
+                break;
+            case R.id.toggleButton3:
+                if(tb3.isChecked())
+                {
+                    yx.setOemFunc("lightbon");
+                }
+                else
+                {
+                    yx.setOemFunc("lightboff");
+                }
+                break;
+            case R.id.toggleButton4:
+                if(tb4.isChecked())
+                {
+                    yx.setGpioValue(88,1);
+                }
+                else
+                {
+                    yx.setGpioValue(88,0);
+                }
+                break;
+            case R.id.toggleButton5:
+                if(tb5.isChecked())
+                {
+                    yx.setGpioValue(114,1);
+                }
+                else
+                {
+                    yx.setGpioValue(114,0);
+                }
+                break;
+            case R.id.toggleButton6:
+                if(tb6.isChecked())
+                {
+                    yx.setGpioValue(115,1);
+                }
+                else
+                {
+                    yx.setGpioValue(115,0);
                 }
                 break;
                 default:
                     break;
-        }
-    }
-
-    class LooperThread extends Thread
-    {
-        public void run()
-        {
-            super.run();
-            try
-            {
-                do
-                {
-                    Thread.sleep(500);
-                    mHandler.sendEmptyMessageDelayed(R_PASS, 0);
-
-                } while (MainActivity.LooperThread.interrupted() == false && threadFlag);
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
         }
     }
 
