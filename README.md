@@ -172,6 +172,14 @@ public String getTelephonyImei()
 */  
 public String getSimSerialNumber() 
 
+/**
+  * @method  setScreenKeyGuard(boolean enable)
+  * @description 设置屏幕开关
+  * @param value，true 开屏；false 关屏
+  * @return void
+*/  
+public void setScreenKeyGuard(boolean enable)  
+
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
