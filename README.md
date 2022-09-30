@@ -21,19 +21,15 @@ YxDeviceManager manager = YxDeviceManager.getInstance(this);
 manager.getApiVersion()  
 ![输入图片说明](binary/%E5%9B%BE%E7%89%873.png)  
 
-## 串口
-![输入图片说明](binary/uart.jpg)
-
-
 ## apk安装与卸载
 
 /**
-  * @method silentInstallApk(String apkPath) 
+  * @method silentInstallApk(String apkPath,boolean start) 
   * @description 静默安装apk
-  * @param value，apk在文件系统中的绝对路径
+  * @param value，apk在文件系统中的绝对路径,安装完成后是否自启动
   * @return void
 */  
-public void silentInstallApk(String apkPath)
+public void silentInstallApk(String apkPath,boolean start)
 
 
 /**
@@ -160,8 +156,21 @@ public int rebootNow()
 */  
 public String getSerialno()
 
-## 双屏异显
-[参考此demo源码与说明](https://gitee.com/seasonkky/thirdparty/tree/master/DualScreenDemo)
+/**
+  * @method  getTelephonyImei()
+  * @description 获取设备Imei号
+  * @param value，void
+  * @return 设备Imei号
+*/  
+public String getTelephonyImei()  
+
+/**
+  * @method  getSimSerialNumber()
+  * @description 获取sim卡iccid
+  * @param value，void
+  * @return 获取sim卡iccid
+*/  
+public String getSimSerialNumber() 
 
 ## OTA升级  
 /**
