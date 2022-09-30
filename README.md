@@ -180,6 +180,14 @@ public String getSimSerialNumber()
 */  
 public void setScreenKeyGuard(boolean enable)  
 
+/**
+  * @method  setSystemTime(long modify_time)
+  * @description 设置系统时间
+  * @param value，当前时间的时间戳
+  * @return void
+*/  
+public void setSystemTime(long modify_time)  
+
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
