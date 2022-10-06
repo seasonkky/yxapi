@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
+import android.os.RemoteCallbackList;
+import android.os.RemoteException;
 import android.os.yx.YxDeviceManager;
+import android.os.yx.IYxGpioListener;
 
 import android.os.Bundle;
+import android.os.yx.YxGpioListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,11 +35,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ToggleButton tb5;
     private ToggleButton tb6;
 
-    public Handler mHandler;
-
-    private static boolean threadFlag = false;
-    private static final int R_PASS = 1;
-
+    private Button bt1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +43,38 @@ public class MainActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         yx = YxDeviceManager.getInstance(this);
         info = findViewById(R.id.textView);
-
+        info.setText(yx.getTelephonyImei());
         InitButton();
         initGpio();
-    }
 
-    private void initGpio() {
-        yx.setGpioDirection(88,0); //relay out
-        yx.setGpioDirection(114,0); //IO1 out
-        yx.setGpioDirection(115,0); //IO1 out
-    }
+        yx.register(listener1,4);
+        yx.register(listener2,114);
+        yx.register(listener3,115);
+    };
+
+    private IYxGpioListener listener1 = new IYxGpioListener.Stub() {
+        @Override
+        public void onNewValue(int b) throws RemoteException {
+            Log.d("test","gpio4 onNewValue:"+b);
+            info.setText("gpio4 onNewValue:"+b);
+        }
+    };
+
+    private IYxGpioListener listener2 = new IYxGpioListener.Stub() {
+        @Override
+        public void onNewValue(int b) throws RemoteException {
+            Log.d("test","gpio114 onNewValue:"+b);
+            info.setText("gpio114 onNewValue:"+b);
+        }
+    };
+
+    private IYxGpioListener listener3 = new IYxGpioListener.Stub() {
+        @Override
+        public void onNewValue(int b) throws RemoteException {
+            Log.d("test","gpio115 onNewValue:"+b);
+            info.setText("gpio115 onNewValue:"+b);
+        }
+    };
 
     private void InitButton() {
         tb1 = findViewById(R.id.toggleButton);
@@ -72,6 +94,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         tb6 = findViewById(R.id.toggleButton6);
         tb6.setOnClickListener(this);
+
+        bt1 = findViewById(R.id.button);
+        bt1.setOnClickListener(this);
+    }
+
+    private void initGpio() {
+        yx.setGpioDirection(88,0); //relay out
+        yx.setGpioDirection(4,1); //body in
+        yx.setGpioDirection(114,1); //IO1 in
+        yx.setGpioDirection(115,1); //IO2 in
     }
 
     @Override
@@ -137,21 +169,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     yx.setGpioValue(115,0);
                 }
                 break;
+            case R.id.button:
+                yx.setSystemTime(1664609612000L);
                 default:
                     break;
         }
     }
-
-    @Override
-    protected void onResume() {
-        threadFlag = true;
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        threadFlag = false;
-        super.onPause();
-    }
-
 }
