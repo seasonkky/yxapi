@@ -228,8 +228,8 @@ yx.setGpioValue(88,1);
 yx.setGpioValue(88,0);   
 
 ### 人体感应
-yx.setGpioDirection(4,1);  
-yx.register(listener1,4);
+yx.setGpioDirection(4,1); 初始化GPIO4 为输入口 
+yx.register(listener1,4);  增加监听器
 private IYxGpioListener listener1 = new IYxGpioListener.Stub() {  
         @Override  
         public void onNewValue(int b) throws RemoteException {  
