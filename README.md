@@ -222,6 +222,10 @@ public void disableWatchdog()
 */  
 public void setOemFunc(String value)  
 
+### 继电器
+yx.setGpioDirection(88,0); //relay out  
+yx.setGpioValue(88,1);  
+yx.setGpioValue(88,0);   
 
 ## OTA升级  
 /**
