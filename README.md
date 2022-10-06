@@ -61,10 +61,10 @@ public int setDeviceMacaddress(String value)
 ## GPIO设置
 | gpio number  |  func |  mode |  default |
 |---|---|---|---|
-| 100 | IO1  |  in/out | in  |
-| 101 | IO2 |  in/out |  in |
-| 102 | IO3 |  in/out |  in |
-| 103 | IO4 |  in/out |  in |
+| 114 | IO1  |  in/out | in  |
+| 115 | IO2 |  in/out |  in |
+| 88 | 继电器 |  in/out |  in |
+| 4 | 人体感应 |  in/out |  in |
 
 /**
   * @method  setGpioDirection(int gpio, int arg)
