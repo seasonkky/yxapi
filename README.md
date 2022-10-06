@@ -212,6 +212,17 @@ public void feedWatchdog()
 */  
 public void disableWatchdog()  
 
+## 硬件控制  
+### 补光灯 
+/**
+  * @method  setOemFunc(String value)
+  * @description 设置补光灯颜色
+  * @param lightron/lightroff 红灯亮灭  lightgon/lightgoff 绿灯亮灭   lightbon/lightboff 白灯亮灭
+  * @return void
+*/  
+public void setOemFunc(String value)  
+
+
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
