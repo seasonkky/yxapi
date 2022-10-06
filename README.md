@@ -188,6 +188,30 @@ public void setScreenKeyGuard(boolean enable)
 */  
 public void setSystemTime(long modify_time)  
 
+/**
+  * @method  enableWatchdog()
+  * @description 使能看门狗
+  * @param value，void
+  * @return void
+*/  
+public void enableWatchdog()  
+
+/**
+  * @method  feedWatchdog()
+  * @description  **硬件看门狗的最大超时时间为 22 秒，在应用层没有使能看门狗时是靠底层自动喂狗，应用使能后底层会停止喂狗，应用层打开后要保证定时喂狗，建议定时时间少于 20 秒** 
+  * @param value，void
+  * @return void
+*/  
+public void feedWatchdog()  
+
+/**
+  * @method  disableWatchdog()
+  * @description  停止看门狗
+  * @param value，void
+  * @return void
+*/  
+public void disableWatchdog()  
+
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
