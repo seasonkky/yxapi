@@ -63,7 +63,7 @@ public int setDeviceMacaddress(String value)
 |---|---|---|---|
 | 114 | IO1  |  in/out | in  |
 | 115 | IO2 |  in/out |  in |
-| 88 | 继电器 |  in/out |  in |
+| 88 | 继电器 |  in/out |  out |
 | 4 | 人体感应 |  in/out |  in |
 
 /**
@@ -226,6 +226,16 @@ public void setOemFunc(String value)
 yx.setGpioDirection(88,0); //relay out  
 yx.setGpioValue(88,1);  
 yx.setGpioValue(88,0);   
+
+### 人体感应
+yx.setGpioDirection(4,1);  
+yx.register(listener1,4);
+private IYxGpioListener listener1 = new IYxGpioListener.Stub() {  
+        @Override  
+        public void onNewValue(int b) throws RemoteException {  
+            Log.d("test","gpio4 onNewValue:"+b);  
+        }  
+    };  
 
 ## OTA升级  
 /**
