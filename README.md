@@ -158,7 +158,7 @@ public String getSerialno()
 
 /**
   * @method  getTelephonyImei()
-  * @description 获取设备Imei号
+  * @description 获取设备Imei号,如果不存在模组，则从vendor分区读取
   * @param value，void
   * @return 设备Imei号
 */  
