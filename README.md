@@ -257,8 +257,8 @@ yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {
 import android.os.yx.YxWiegand;  
 YxWiegand yxWiegand;    
 yxWiegand = YxWiegand.getInstance(this);   
-byte[] wigend28 = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06};  
-yxWiegand.write(wigend28);  
+byte[] wigend34 = {0x01, 0x02, 0x03, 0x04};  
+yxWiegand.write(wigend34);  
 
 ## OTA升级  
 /**
