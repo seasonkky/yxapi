@@ -243,6 +243,17 @@ private IYxGpioListener listener1 = new IYxGpioListener.Stub() {
         }  
     };  
 
+### 韦根
+#### 读取
+YxWiegand yxWiegand;  
+yxWiegand = YxWiegand.getInstance(this);  
+yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {  
+            @Override  
+            public void onNewValue(byte[] bytes) {  
+            }  
+        });  
+#### 发送
+
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
