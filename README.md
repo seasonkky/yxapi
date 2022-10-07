@@ -245,6 +245,7 @@ private IYxGpioListener listener1 = new IYxGpioListener.Stub() {
 
 ### 韦根
 #### 读取
+import android.os.yx.YxWiegand;
 YxWiegand yxWiegand;  
 yxWiegand = YxWiegand.getInstance(this);  
 yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {  
@@ -253,6 +254,11 @@ yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {
             }  
         });  
 #### 发送
+import android.os.yx.YxWiegand;  
+YxWiegand yxWiegand;    
+yxWiegand = YxWiegand.getInstance(this);   
+byte[] wigend28 = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06};  
+yxWiegand.write(wigend28);  
 
 ## OTA升级  
 /**
