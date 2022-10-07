@@ -68,6 +68,12 @@
                 android:layout_height="wrap_content"
                 android:text="设置系统时间" />
 
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="韦根发送测试" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"

@@ -38,6 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ToggleButton tb6;
 
     private Button bt1;
+    private Button bt2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +113,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         bt1 = findViewById(R.id.button);
         bt1.setOnClickListener(this);
+
+        bt2 = findViewById(R.id.button2);
+        bt2.setOnClickListener(this);
     }
 
     private void initGpio() {
@@ -186,6 +190,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.button:
                 yx.setSystemTime(1664609612000L);
+                break;
+            case R.id.button2:
+                byte[] wigend34 = {0x01, 0x02, 0x03, 0x04};
+                yxWiegand.write(wigend34);
+                break;
                 default:
                     break;
         }
