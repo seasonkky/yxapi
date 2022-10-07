@@ -260,6 +260,13 @@ yxWiegand = YxWiegand.getInstance(this);
 byte[] wigend34 = {0x01, 0x02, 0x03, 0x04};  
 yxWiegand.write(wigend34);  
 
+### 串口节点
+|  节点名称 |  属性 |  访问权限 |   |
+|---|---|---|---|
+|  ttyS4 |  RS485 |  666 |   |
+|  ttyS7 |  RS232 |  666 |   |
+
+
 ## OTA升级  
 /**
   * @method  upgradeSystem(String absolutePath)
