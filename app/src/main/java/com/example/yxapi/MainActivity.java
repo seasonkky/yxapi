@@ -12,6 +12,7 @@ import android.os.yx.IYxGpioListener;
 
 import android.os.Bundle;
 import android.os.yx.YxGpioListener;
+import android.os.yx.YxWiegand;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +26,7 @@ import android.widget.ToggleButton;
 public class MainActivity extends Activity implements View.OnClickListener{
 
     YxDeviceManager yx;
+    YxWiegand yxWiegand;
 
     private TextView info;
 
@@ -50,6 +52,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         yx.register(listener1,4);
         yx.register(listener2,114);
         yx.register(listener3,115);
+
+
+        initWiegand();
     };
 
     private IYxGpioListener listener1 = new IYxGpioListener.Stub() {
@@ -75,6 +80,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
             info.setText("gpio115 onNewValue:"+b);
         }
     };
+
+    private void initWiegand() {
+        yxWiegand = YxWiegand.getInstance(this);
+        yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {
+            @Override
+            public void onNewValue(byte[] bytes) {
+                info.append("wiegand read:"+new String(bytes));
+            }
+        });
+    }
 
     private void InitButton() {
         tb1 = findViewById(R.id.toggleButton);
