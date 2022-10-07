@@ -63,6 +63,7 @@ public int setDeviceMacaddress(String value)
 |---|---|---|---|
 | 114 | IO1  |  in/out | in  |
 | 115 | IO2 |  in/out |  in |
+| 94 | 红外摄像头补光 |  in/out |  out |
 | 88 | 继电器 |  in/out |  out |
 | 4 | 人体感应 |  in/out |  in |
 
@@ -221,6 +222,11 @@ public void disableWatchdog()
   * @return void
 */  
 public void setOemFunc(String value)  
+
+### 红外摄像头补光灯
+yx.setGpioDirection(94,0); //IR_CTL out  
+yx.setGpioValue(94,1);  
+yx.setGpioValue(94,0);  
 
 ### 继电器
 yx.setGpioDirection(88,0); //relay out  
