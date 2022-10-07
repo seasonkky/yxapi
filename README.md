@@ -245,7 +245,7 @@ private IYxGpioListener listener1 = new IYxGpioListener.Stub() {
 
 ### 韦根
 #### 读取
-import android.os.yx.YxWiegand;
+import android.os.yx.YxWiegand;  
 YxWiegand yxWiegand;  
 yxWiegand = YxWiegand.getInstance(this);  
 yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {  
