@@ -31,6 +31,14 @@ manager.getApiVersion()
 */  
 public void silentInstallApk(String apkPath,boolean start)
 
+/**
+  * @method silentInstallApk(IYxInstallListener aListener,String apkPath,boolean start)
+  * @description 静默安装apk
+  * @param value，apk在文件系统中的绝对路径,安装完成后是否自启动,安装结果回调监听器
+  * @return void
+*/  
+public void silentInstallApk(IYxInstallListener aListener,String apkPath,boolean start)
+
 
 /**
   * @method unInstallApk(String packagename) 
@@ -41,6 +49,21 @@ public void silentInstallApk(String apkPath,boolean start)
 public void unInstallApk(String packagename)
 
 ## vendor storage 设备spi nor存储区域
+/**
+  * @method  setDeviceCustom(int ID,String value)
+  * @description 写入自定义信息到vendor分区，不可擦除
+  * @param value，ID只允许从16开始，最大128个字节
+  * @return -1 写入失败
+*/  
+public int setDeviceCustom(int ID,String value)
+
+/**
+  * @method  getDeviceCustom(int ID)
+  * @description 读取vendor分区
+  * @param value，ID只允许从16开始
+  * @return 读取到的信息
+*/  
+public int getDeviceCustom(int ID)  
 
 /**
   * @method  setDeviceSerialno(String value)
