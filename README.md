@@ -93,64 +93,64 @@ public int setDeviceMacaddress(String value)
 /**
   * @method  setGpioDirection(int gpio, int arg)
   * @description 设置GPIO方向
-  * @param value，gpio number。1为输入，0为输出
-  * @return false 失败 true 成功
+  * @param value，gpio number。1 is the input and 0 is the output
+  * @return 
 */  
 public boolean setGpioDirection(int gpio, int arg)
 
 /**
   * @method  getGpioDirection(int gpio)
-  * @description 获取GPIO方向
+  * @description Get the GPIO direction
   * @param value，gpio number
-  * @return gpio方向 in / out
+  * @return gpio direction in/out
 */  
 public String getGpioDirection(int gpio)
 
 /**
   * @method  setGpioValue(int id,int value)
-  * @description 设置gpio高低，只有在输出模式有效
-  * @param value，gpio number，0低1高
-  * @return -1失败
+  * @description Set gpio high or low, valid only in output mode
+  * @param value，gpio number: 0 low 1 high
+  * @return -1 failed
 */  
 public int setGpioValue(int id,int value)
 
 /**
   * @method  getGpioValue(int id)
-  * @description 获取GPIO高低
+  * @description Get the GPIO level
   * @param value，gpio number
-  * @return -1失败 0低 1高
+  * @return -1 Failure 0 Low 1 high
 */  
 public int getGpioValue(int id)
 
-## 状态栏，导航栏
+## Status bar, navigation bar
 /**
   * @method  setNavBar(boolean flag)
-  * @description 设置导航栏显示隐藏
-  * @param value，true 显示 false 隐藏
+  * @description Set the navigation bar display hidden
+  * @param value，true displays false hides
   * @return void
 */  
 public void setNavBar(boolean flag) 
 
 /**
   * @method  setStaBar(boolean flag)
-  * @description 设置状态栏显示隐藏
-  * @param value，true 显示 false 隐藏
+  * @description Set the status bar display hidden
+  * @param value，true displays false hides
   * @return void
 */  
 public void setStaBar(boolean flag) 
 
-## 系统
+## system
 /**
   * @method  setScreenRotation(int value)
-  * @description 设置系统显示方向，重启后生效
+  * @description The system display direction takes effect after a restart
   * @param value，0 90 180 270
-  * @return -1 失败
+  * @return -1 failed
 */  
 public int setScreenRotation(int value)
 
 /**
   * @method  getScreenRotation()
-  * @description 获取当前系统显示方向
+  * @description Obtain the current system display direction
   * @param value，void
   * @return 0 90 180 270
 */  
@@ -158,63 +158,63 @@ public int getScreenRotation()
 
 /**
   * @method  shutDownNow()
-  * @description 关机
+  * @description shutDownNow
   * @param value，void
-  * @return -1失败
+  * @return -1 
 */  
 public int shutDownNow()
 
 /**
   * @method  rebootNow()
-  * @description 重启
+  * @description rebootNow
   * @param value，void
-  * @return -1失败
+  * @return -1
 */  
 public int rebootNow()
 
 /**
   * @method  getSerialno()
-  * @description 获取设备SN号
+  * @description Obtain the device SN
   * @param value，void
-  * @return 设备SN号 adb devices / adb get-serialno
+  * @return Device SN adb devices / adb get-serialno
 */  
 public String getSerialno()
 
 /**
   * @method  getTelephonyImei()
-  * @description 获取设备Imei号,如果不存在模组，则从vendor分区读取
+  * @description Obtain the device Imei. If no module exists, obtain the device IMEI from the vendor partition
   * @param value，void
-  * @return 设备Imei号
+  * @return Imei of the device
 */  
 public String getTelephonyImei()  
 
 /**
   * @method  getSimSerialNumber()
-  * @description 获取sim卡iccid
+  * @description Obtain the iccid of the sim card
   * @param value，void
-  * @return 获取sim卡iccid
+  * @return Obtain the iccid of the sim card
 */  
 public String getSimSerialNumber() 
 
 /**
   * @method  setScreenKeyGuard(boolean enable)
-  * @description 设置屏幕开关
-  * @param value，true 开屏；false 关屏
+  * @description Set screen switch
+  * @param value，true Open the screen; false screen off
   * @return void
 */  
 public void setScreenKeyGuard(boolean enable)  
 
 /**
   * @method  setSystemTime(long modify_time)
-  * @description 设置系统时间
-  * @param value，当前时间的时间戳
+  * @description Setting the system time
+  * @param value，Timestamp of the current time
   * @return void
 */  
 public void setSystemTime(long modify_time)  
 
 /**
   * @method  enableWatchdog()
-  * @description 使能看门狗
+  * @description Enable the watchdog
   * @param value，void
   * @return void
 */  
@@ -222,7 +222,7 @@ public void enableWatchdog()
 
 /**
   * @method  feedWatchdog()
-  * @description  **硬件看门狗的最大超时时间为 22 秒，在应用层没有使能看门狗时是靠底层自动喂狗，应用使能后底层会停止喂狗，应用层打开后要保证定时喂狗，建议定时时间少于 20 秒** 
+  * @description  **The maximum timeout period of the hardware watchdog is 22 seconds. If the watchdog is not enabled at the application layer, the underlying layer automatically feeds the dog. After the application layer is enabled, the underlying layer stops feeding the dog** 
   * @param value，void
   * @return void
 */  
@@ -230,35 +230,35 @@ public void feedWatchdog()
 
 /**
   * @method  disableWatchdog()
-  * @description  停止看门狗
+  * @description  Stop the guard dogs
   * @param value，void
   * @return void
 */  
 public void disableWatchdog()  
 
-## 硬件控制  
-### 补光灯 
+## Hardware control
+### Fill-in light 
 /**
   * @method  setOemFunc(String value)
-  * @description 设置补光灯颜色
-  * @param lightron/lightroff 红灯亮灭  lightgon/lightgoff 绿灯亮灭   lightbon/lightboff 白灯亮灭
+  * @description Set the fill light color
+  * @param lightron/lightroff lightgon/lightgoff Green on off lightbon/lightboff White On Off
   * @return void
 */  
 public void setOemFunc(String value)  
 
-### 红外摄像头补光灯
+### Infrared camera fill light
 yx.setGpioDirection(94,0); //IR_CTL out  
 yx.setGpioValue(94,1);  
 yx.setGpioValue(94,0);  
 
-### 继电器
+### relay
 yx.setGpioDirection(88,0); //relay out  
 yx.setGpioValue(88,1);  
 yx.setGpioValue(88,0);   
 
-### 人体感应
-yx.setGpioDirection(4,1); 初始化GPIO4 为输入口   
-yx.register(listener1,4);  增加监听器  
+### body sensor
+yx.setGpioDirection(4,1); 
+yx.register(listener1,4); 
 private IYxGpioListener listener1 = new IYxGpioListener.Stub() {  
         @Override  
         public void onNewValue(int b) throws RemoteException {  
@@ -266,8 +266,8 @@ private IYxGpioListener listener1 = new IYxGpioListener.Stub() {
         }  
     };  
 
-### 韦根
-#### 读取
+### wiegand
+#### read
 import android.os.yx.YxWiegand;  
 YxWiegand yxWiegand;  
 yxWiegand = YxWiegand.getInstance(this);  
@@ -276,33 +276,33 @@ yxWiegand.startReading(new YxWiegand.YxWiegandCallBack() {
             public void onNewValue(byte[] bytes) {  
             }  
         });  
-#### 发送
+#### send
 import android.os.yx.YxWiegand;  
 YxWiegand yxWiegand;    
 yxWiegand = YxWiegand.getInstance(this);   
 byte[] wigend34 = {0x01, 0x02, 0x03, 0x04};  
 yxWiegand.write(wigend34);  
 
-### 串口节点
-|  节点名称 |  属性 |  访问权限 |   |
+### uart
+|  name |  prop |  permission |   |
 |---|---|---|---|
 |  ttyS4 |  RS485 |  666 |   |
 |  ttyS7 |  RS232 |  666 |   |
 
 
-## OTA升级  
+## OTA update  
 /**
   * @method  upgradeSystem(String absolutePath)
-  * @description 升级系统
-  * @param ota包存放的绝对路径
+  * @description Upgrade system
+  * @param otaAbsolute path for storing the package
   * @return
 */  
 public void upgradeSystem(String absolutePath)  
 
  /**
   * @method  setUpdateSystemWithDialog(boolean flag)
-  * @description 设置升级是否弹出用户确认框（设置后永久生效）
-  * @param false 不需要用户确认，true 需要用户确认
+  * @description Set whether the user confirmation box is displayed (the setting takes effect permanently).
+  * @param false No user confirmation is required; true requires user confirmation
   * @return
 */  
 public void setUpdateSystemWithDialog(boolean flag)
