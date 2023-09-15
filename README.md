@@ -1,40 +1,40 @@
 
-# API开发文档
+# API Development document
 
 
-文档主要介绍YX API如何快速移植使用， 让开发者能够进一步开发和适配YX硬件平台。
+The document mainly describes how the YX API can be quickly ported and used, so that developers can further develop and adapt the YX hardware platform.
 
 
 
-## 如何在Android Studio中使用 API
-(1)将yx.jar复制到【工程目录\app\libs\】下；  
+## How do I use apis in Android Studio
+(1)Copy yx.jar to [project directory \app\libs\];
 ![输入图片说明](binary/%E5%9B%BE%E7%89%871.png)  
-(2)右键点击libs文件夹中的jar文件选择 add as Library...然后选择Model，这样也可以导入成功  
+(2)Right click on the jar file in the libs folder and select add as Library... Then select Model to import successfully as well  
 ![输入图片说明](binary/%E5%9B%BE%E7%89%872.png)  
-(3)开始使用 API  
-注意：所有的api调用前必须声明  
+(3)Getting started with the API
+Note: All api calls must be declared before
 MyManager manager = MyManager.getInstance(this);    
-首先要声明 MyManager 对象， 然后就可以开始使用 API.如下面例子：   
-//声明 MyManager 对象  
+First you declare the MyManager object, and then you can start using the API. As the following example:
+//Declare the MyManager object
 YxDeviceManager manager = YxDeviceManager.getInstance(this);  
-//使用 API   
+//USE API   
 manager.getApiVersion()  
 ![输入图片说明](binary/%E5%9B%BE%E7%89%873.png)  
 
-## apk安装与卸载
+## apk installation and uninstallation
 
 /**
   * @method silentInstallApk(String apkPath,boolean start) 
-  * @description 静默安装apk
-  * @param value，apk在文件系统中的绝对路径,安装完成后是否自启动
+  * @description silentinstall apk
+  * @param value，Absolute path of the apk in the file system. Whether the APK starts automatically after the installation is complete
   * @return void
 */  
 public void silentInstallApk(String apkPath,boolean start)
 
 /**
   * @method silentInstallApk(IYxInstallListener aListener,String apkPath,boolean start)
-  * @description 静默安装apk
-  * @param value，apk在文件系统中的绝对路径,安装完成后是否自启动,安装结果回调监听器
+  * @description silentinstall apk
+  * @param value，Absolute path of the apk in the file system, whether to start the APK after installation, and call back the listener after installation
   * @return void
 */  
 public void silentInstallApk(IYxInstallListener aListener,String apkPath,boolean start)
@@ -42,53 +42,53 @@ public void silentInstallApk(IYxInstallListener aListener,String apkPath,boolean
 
 /**
   * @method unInstallApk(String packagename) 
-  * @description 静默卸载apk
-  * @param value，apk包名
+  * @description uninstall apk
+  * @param value，apk package name
   * @return void
 */  
 public void unInstallApk(String packagename)
 
-## vendor storage 设备spi nor存储区域
+## vendor storage Device spi nor storage area
 /**
   * @method  setDeviceCustom(int ID,String value)
-  * @description 写入自定义信息到vendor分区，不可擦除
-  * @param value，ID只允许从16开始，最大128个字节
-  * @return -1 写入失败
+  * @description The customized information is written to the vendor partition and cannot be erased
+  * @param value，The ID can only start from 16 and contain a maximum of 128 bytes
+  * @return -1 write failed
 */  
 public int setDeviceCustom(int ID,String value)
 
 /**
   * @method  getDeviceCustom(int ID)
-  * @description 读取vendor分区
-  * @param value，ID只允许从16开始
-  * @return 读取到的信息
+  * @description Reading vendor partition
+  * @param value，The ID can only start from 16
+  * @return Read the information
 */  
 public int getDeviceCustom(int ID)  
 
 /**
   * @method  setDeviceSerialno(String value)
-  * @description 写入设备sn号，保存到vendor分区，不可擦除
+  * @description The sn of the device is written to the vendor partition and cannot be erased
   * @param value，sn number
-  * @return -1 写入失败
+  * @return -1 write failed
 */  
 public int setDeviceSerialno(String value)
 
 /**
   * @method  setDeviceMacaddress(String value)
-  * @description 写入设备以太网物理地址，保存到vendor分区，不可擦除
+  * @description The physical Ethernet address of the device is written to the vendor partition and cannot be erased
   * @param value，mac address
-  * @return -1 写入失败
+  * @return -1 write failed
 */  
 public int setDeviceMacaddress(String value)
 
-## GPIO设置
+## GPIO settings
 | gpio number  |  func |  mode |  default |
 |---|---|---|---|
 | 114 | IO1  |  in/out | in  |
 | 115 | IO2 |  in/out |  in |
-| 94 | 红外摄像头补光 |  in/out |  out |
-| 88 | 继电器 |  in/out |  out |
-| 4 | 人体感应 |  in/out |  in |
+| 94 | Infrared camera fill light |  in/out |  out |
+| 88 | relay |  in/out |  out |
+| 4 | Body sensing |  in/out |  in |
 
 /**
   * @method  setGpioDirection(int gpio, int arg)
